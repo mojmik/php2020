@@ -1,0 +1,59 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{include description|striptags}">
+
+        <title>{include title|striptags}</title>
+
+        {block css}
+            <link rel="stylesheet" href="{$basePath}/css/style.css">
+        {/block}
+
+        {block head}{/block}
+    </head>
+
+    <body>
+        <header>
+            <h1>Jednoduchý redakční systém v Nette</h1>
+        </header>
+
+        {* Výpis flash zpráv. *}
+        <p n:foreach="$flashes as $flash" class="message">{$flash->message}</p>
+
+        <nav>
+            <ul>
+                <li><a n:href=:Core:Article:>Úvod</a></li>
+                <li><a href="#">Seznam článků</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+        <br clear="both">
+
+        <article>
+            <header>
+                <h1>{include title}</h1>
+            </header>
+            <section>
+                {include content} {* Vložení obsahu do šablony. *}
+            </section>
+        </article>
+
+        <footer>
+            <p>
+                Ukázkový tutoriál pro jednoduchý redakční systém v Nette z programátorské sociální sítě
+                <a href="http://www.itnetwork.cz" target="_blank">itnetwork.cz</a>
+            </p>
+        </footer>
+
+        {block scripts}
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+            <script src="{$basePath}/js/main.js"></script>
+        {/block}
+    </body>
+</html>
