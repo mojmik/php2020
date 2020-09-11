@@ -1,0 +1,1 @@
+vlastni dependency injection na zaklade: https://www.itnetwork.cz/navrh/architektury-a-dependency-injection/zdrojovy-kod-ioc-kontejneru
